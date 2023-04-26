@@ -1,0 +1,8 @@
+{
+  "name": "hiko-spider-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:kyssion/hiko-spider-server.git",
+  "author": "kyssion <1409915687@qq.com>",
+  "license": "MIT"
+}
