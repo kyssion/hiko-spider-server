@@ -83,8 +83,7 @@ function addV1(x : AddType, y : AddType) : AddType{
     return x+y
 }
 
-// todo 函数高级特性， 函数重载
-
+// todo 函数高级特性， 函数重载 注意这里是模板写法
 // ts 的重载和其他语言不同， 因为本省变量就支持多种类型， 所以函数重载主要是为了约束返回值
 // 不同的请求类型需要在函数内部识别差异 ，这么处理的考量可能是因为防止编译数据膨胀
 type Types = string | number
@@ -101,3 +100,11 @@ function add(a:Types, b:Types) {
 
 const result = add('Semlinker', ' Kakuqo');
 result.split(' ');
+
+// 元组可选剩余类型
+type TupleV2 = [number,string, ...string[]]
+
+// 元组可选和只读元组
+const ReadBase : readonly [number, string] = [1, "fff"]
+
+// ts 统一 underfind 和 null 为 void类型
