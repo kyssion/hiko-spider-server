@@ -84,7 +84,6 @@ function addV1(x : AddType, y : AddType) : AddType{
 }
 
 // todo 函数高级特性， 函数重载
-
 // ts 的重载和其他语言不同， 因为本省变量就支持多种类型， 所以函数重载主要是为了约束返回值
 // 不同的请求类型需要在函数内部识别差异 ，这么处理的考量可能是因为防止编译数据膨胀
 type Types = string | number
@@ -101,3 +100,67 @@ function add(a:Types, b:Types) {
 
 const result = add('Semlinker', ' Kakuqo');
 result.split(' ');
+
+// todo void 这个变量主要是用来作为返回值的判空表示
+
+// todo never 这个类型是ts 独有 ， 表示永远不存在的类型
+// 1. 异常
+function err (msg : string) : never{
+    throw new Error("fff")
+}
+function loopForever(): never{
+    while (true){}
+}
+// 2. ts有非常牛逼的类型检测能力使用never可以检测数据
+
+type Foo = string | number;
+function controlFlowAnalysisWithNever(foo : Foo){
+    if (typeof foo === "string"){
+
+    }else if (typeof foo === "number"){
+
+    }else{
+        // 做最后的类型check ，防止私有变量类型变多比如 : Foo 类型增加了 string| number | boolean ， 导致程序问题
+        const check : never = foo
+    }
+}
+// 补充一下 ts 类型推断
+
+const arrayNumber: number[] = [1, 2, 3, 4];
+const greaterThan2: number = arrayNumber.find(num => num > 2) as number; // 这里单纯的写入是存在问题的， 需要使用as number 强制指定类型
+// 尖括号 语法
+let someValue1: any = "this is a string";
+let strLength2: number = (<string>someValue1).length;
+
+// as 语法
+let someValue3: any = "this is a string";
+let strLength4: number = (someValue3 as string).length;
+
+
+// todo any 类型 ， any 是ts 中的顶级类型， 所有的类型都是any的子类型
+
+// any 类型可以被任意的赋值
+let bb = 555 // 强制类型转化
+let cc; // 不指定类型默认any
+let aa : any = 666
+aa = `sfsadfasf`
+aa = 123
+
+// todo unknown 可以赋予任意类型 ， 但是unknown 不能付给除了 unknown 或者any的其他类型
+
+// js 原始类型和ts 的兼容性
+let  num1 : number = 123
+let num2 : Number = 444
+num2 = num1
+// num1 = num2 ts 类型的权限更高 ， 只能用的ts类型优化原始类型
+
+
+// todo object Object 和{}
+// 1. object 代表所有非原始类型 ， 比如 也就是除了number string之类的
+
+let item : object = {}
+
+let itemV2 :Object
+itemV2 = "fff"
+itemV2 = 1234
+
