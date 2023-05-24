@@ -28,9 +28,21 @@ interface Person2 {
 function print(item : Person2){
     console.log(item)
 }
+
+class XXX {
+    name : string = ""
+}
+
+interface Interface {
+    name : string
+    age : string
+}
+
 let t : Person1 = {
     age: 0, name: ""
 }
+
+print({age: 0, name: ""})
 
 print(t)
 
@@ -55,5 +67,6 @@ type SetPoint2 = (x: number, y: number) => void;
 interface Point { x: number; }
 interface Point { y: number; }
 const point: Point = { x: 1, y: 2 };
+
 
 
