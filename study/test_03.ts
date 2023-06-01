@@ -57,3 +57,30 @@ interface Point { y: number; }
 const point: Point = { x: 1, y: 2 };
 
 
+type type1 = {
+    name1: number
+}
+
+type type2 = type1 &{
+    name: number
+    age : string
+}
+
+let aaa : type2 = {
+    name1 : 134,
+    name:123,
+    age : "fff"
+}
+console.log(aaa)
+
+// todo 范型
+
+
+function identify<T>(arg : T) : T{
+    return arg
+}
+
+// 范型约束条件
+function identify2<T extends Point,V>(arg:T , arg2:T) :T{
+    return arg
+}
