@@ -28,9 +28,21 @@ interface Person2 {
 function print(item : Person2){
     console.log(item)
 }
+
+class XXX {
+    name : string = ""
+}
+
+interface Interface {
+    name : string
+    age : string
+}
+
 let t : Person1 = {
     age: 0, name: ""
 }
+
+print({age: 0, name: ""})
 
 print(t)
 
@@ -65,6 +77,7 @@ type type2 = type1 &{
     name: number
     age : string
 }
+
 
 let aaa : type2 = {
     name1 : 134,
